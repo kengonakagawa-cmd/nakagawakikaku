@@ -1,0 +1,1282 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>「大手企業開拓」特化のABM×エグゼクティブ施策支援サービス</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy:    #0b1526;
+      --navy2:   #122040;
+      --blue:    #1a3a6b;
+      --cyan:    #0ea5e9;
+      --cyan2:   #38bdf8;
+      --amber:   #f59e0b;
+      --red:     #ef4444;
+      --white:   #ffffff;
+      --gray50:  #f8fafc;
+      --gray100: #f1f5f9;
+      --gray200: #e2e8f0;
+      --gray600: #475569;
+      --gray700: #334155;
+      --gray900: #0f172a;
+      --text:    #1e293b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      line-height: 1.75;
+      background: var(--white);
+    }
+
+    /* ─── UTILITY ─── */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section { padding: 96px 0; }
+    .section-dark { background: var(--navy); color: var(--white); }
+    .section-gray { background: var(--gray100); }
+    .section-navy2 { background: var(--navy2); color: var(--white); }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 16px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--cyan);
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    .section-desc {
+      font-size: 16px;
+      color: var(--gray600);
+      max-width: 680px;
+    }
+    .section-dark .section-desc,
+    .section-navy2 .section-desc { color: #94a3b8; }
+
+    .highlight { color: var(--cyan); }
+    .highlight-amber { color: var(--amber); }
+
+    /* ─── BUTTON ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 36px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform .2s, box-shadow .2s, background .2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+    .btn-primary {
+      background: var(--cyan);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--cyan2); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,.5);
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+    .btn-large { padding: 20px 48px; font-size: 18px; }
+
+    /* ─── HEADER (fixed) ─── */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(11,21,38,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    #header .inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .logo {
+      font-size: 15px;
+      font-weight: 900;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -.01em;
+    }
+    .logo span { color: var(--cyan); }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header-article-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: rgba(255,255,255,.75);
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.2);
+      transition: background .2s, border-color .2s, color .2s;
+      letter-spacing: .02em;
+    }
+    .header-article-btn:hover {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.45);
+      color: var(--white);
+    }
+    .header-article-btn .btn-icon {
+      font-size: 13px;
+    }
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--cyan);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .header-cta:hover { background: var(--cyan2); }
+
+    /* ─── HERO ARTICLE BUTTON ─── */
+    .btn-article {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 28px;
+      background: transparent;
+      color: rgba(255,255,255,.8);
+      border: 1.5px solid rgba(255,255,255,.25);
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, color .2s, transform .2s;
+      letter-spacing: .02em;
+    }
+    .btn-article:hover {
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.6);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    .btn-article .btn-icon {
+      font-size: 16px;
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--navy);
+      overflow: hidden;
+      padding-top: 64px;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(14,165,233,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(245,158,11,.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 80px 24px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14,165,233,.15);
+      border: 1px solid rgba(14,165,233,.4);
+      color: var(--cyan2);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 32px;
+      letter-spacing: .06em;
+    }
+    .hero-title {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 28px;
+      letter-spacing: -.02em;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--cyan);
+    }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: #94a3b8;
+      max-width: 600px;
+      margin-bottom: 48px;
+      line-height: 1.8;
+    }
+    .hero-sub strong { color: var(--white); }
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      flex-wrap: wrap;
+    }
+    .stat-item {}
+    .stat-num {
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--cyan);
+      line-height: 1;
+    }
+    .stat-unit {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+    .stat-label {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* ─── URGENT BANNER ─── */
+    #urgent {
+      background: linear-gradient(90deg, #78350f, var(--amber), #78350f);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+      padding: 14px 24px;
+      text-align: center;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
+    #urgent p {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gray900);
+    }
+    #urgent a {
+      color: var(--gray900);
+      text-decoration: underline;
+      margin-left: 12px;
+    }
+
+    /* ─── PAIN SECTION ─── */
+    .pain-intro {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .pain-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pain-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+    }
+    .pain-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    .pain-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .pain-card h3 strong { color: var(--red); }
+    .pain-card p {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.8;
+    }
+    .pain-card p strong { color: var(--white); }
+    .pain-note {
+      background: rgba(239,68,68,.12);
+      border: 1px solid rgba(239,68,68,.3);
+      border-radius: 12px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .pain-note-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+    .pain-note p { color: #f1f5f9; font-size: 15px; }
+    .pain-note p strong { color: var(--white); font-weight: 700; }
+
+    /* ─── SOLUTION ─── */
+    .solution-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    @media (max-width: 768px) { .solution-wrap { grid-template-columns: 1fr; } }
+    .solution-text .section-title { margin-bottom: 20px; }
+    .solution-text p { font-size: 16px; color: var(--gray600); margin-bottom: 16px; }
+    .solution-text p strong { color: var(--text); }
+    .solution-check {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 20px 24px;
+      font-size: 15px;
+      color: #166534;
+      font-weight: 700;
+      margin-top: 16px;
+    }
+    .solution-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .solution-card {
+      background: var(--gray50);
+      border: 1px solid var(--gray200);
+      border-radius: 16px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .solution-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--cyan);
+    }
+    .solution-card-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: .1em;
+      margin-bottom: 8px;
+    }
+    .solution-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .solution-card p { font-size: 14px; color: var(--gray600); }
+    .solution-multiply {
+      text-align: center;
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--cyan);
+      align-self: center;
+    }
+
+    /* ─── COMPARISON ─── */
+    .comp-title { margin-bottom: 40px; }
+    .comp-table-wrap {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--gray200);
+    }
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: var(--white);
+    }
+    .comp-table th, .comp-table td {
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 1px solid var(--gray200);
+      vertical-align: top;
+    }
+    .comp-table thead th {
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .comp-table thead th:first-child { border-radius: 12px 0 0 0; }
+    .comp-table thead th:last-child { border-radius: 0 12px 0 0; }
+    .comp-table th.highlight-col {
+      background: var(--blue);
+      color: var(--cyan);
+    }
+    .comp-table tbody tr:last-child td { border-bottom: none; }
+    .comp-table tbody tr:nth-child(even) td { background: var(--gray50); }
+    .comp-table td:first-child { font-weight: 700; color: var(--gray700); }
+    .comp-table td.good { color: #166534; font-weight: 700; }
+    .comp-table td.so-so { color: #92400e; }
+    .comp-note {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-top: 24px;
+      font-size: 15px;
+      color: #1e40af;
+    }
+    .comp-note strong { font-weight: 700; }
+
+    /* ─── SERVICE ─── */
+    .service-target {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(14,165,233,.1);
+      border: 1px solid rgba(14,165,233,.3);
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--cyan2);
+      margin-bottom: 32px;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .service-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px;
+      padding: 36px 28px;
+      position: relative;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--cyan);
+      border-radius: 20px 20px 0 0;
+    }
+    .service-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: var(--cyan);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 900;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .service-card p { font-size: 14px; color: #94a3b8; line-height: 1.8; }
+
+    /* ─── EFFECTS TABLE ─── */
+    .effects-table-wrap {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--gray200);
+      margin-top: 40px;
+    }
+    .effects-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: var(--white);
+    }
+    .effects-table th, .effects-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--gray200);
+      text-align: left;
+      vertical-align: top;
+    }
+    .effects-table thead th {
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 700;
+    }
+    .effects-table thead th:first-child { border-radius: 12px 0 0 0; }
+    .effects-table thead th:last-child { border-radius: 0 12px 0 0; }
+    .effects-table tbody tr:last-child td { border-bottom: none; }
+    .effects-table tbody tr:nth-child(even) td { background: var(--gray50); }
+    .effects-table td:first-child { font-weight: 700; color: var(--gray700); white-space: nowrap; }
+
+    /* ─── PRICING ─── */
+    .pricing-banner {
+      background: linear-gradient(135deg, #7c2d12, var(--amber));
+      border-radius: 16px;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .pricing-banner p { font-size: 16px; font-weight: 700; color: var(--white); }
+    .pricing-banner a {
+      margin-left: auto;
+      background: var(--white);
+      color: #7c2d12;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity .2s;
+    }
+    .pricing-banner a:hover { opacity: .85; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .pricing-card {
+      background: var(--white);
+      border: 2px solid var(--gray200);
+      border-radius: 20px;
+      padding: 36px 28px;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    .pricing-card:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 8px 32px rgba(14,165,233,.15);
+      transform: translateY(-4px);
+    }
+    .pricing-card.featured {
+      border-color: var(--cyan);
+      background: var(--navy);
+      color: var(--white);
+    }
+    .pricing-badge {
+      display: inline-block;
+      background: var(--cyan);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+    }
+    .pricing-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .pricing-card .duration {
+      font-size: 13px;
+      color: var(--gray600);
+      margin-bottom: 16px;
+    }
+    .pricing-card.featured .duration { color: #94a3b8; }
+    .pricing-card .desc {
+      font-size: 14px;
+      color: var(--gray600);
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+    .pricing-card.featured .desc { color: #94a3b8; }
+    .pricing-divider {
+      border: none;
+      border-top: 1px solid var(--gray200);
+      margin-bottom: 20px;
+    }
+    .pricing-card.featured .pricing-divider { border-color: rgba(255,255,255,.15); }
+    .pricing-features li {
+      list-style: none;
+      font-size: 14px;
+      padding: 6px 0;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--cyan);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .pricing-note {
+      background: var(--gray50);
+      border: 1px solid var(--gray200);
+      border-radius: 12px;
+      padding: 20px 24px;
+      font-size: 14px;
+      color: var(--gray600);
+    }
+    .pricing-note p + p { margin-top: 4px; }
+
+    /* ─── STEPS ─── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0;
+      margin-top: 48px;
+      position: relative;
+    }
+    .step-item {
+      text-align: center;
+      padding: 32px 20px;
+      position: relative;
+    }
+    .step-item:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: var(--cyan);
+      font-weight: 700;
+    }
+    @media (max-width: 768px) { .step-item:not(:last-child)::after { display: none; } }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: var(--cyan);
+      color: var(--white);
+      font-size: 20px;
+      font-weight: 900;
+      border-radius: 12px;
+      margin: 0 auto 16px;
+    }
+    .step-item h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .step-item p { font-size: 13px; color: #94a3b8; line-height: 1.7; }
+
+    /* ─── FAQ ─── */
+    .faq-list { margin-top: 48px; }
+    .faq-item {
+      border: 1px solid var(--gray200);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      background: var(--white);
+      border: none;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      transition: background .15s;
+    }
+    .faq-q:hover { background: var(--gray50); }
+    .faq-q .q-badge {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--cyan);
+      color: var(--white);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .faq-q .arrow {
+      margin-left: auto;
+      color: var(--gray600);
+      transition: transform .25s;
+    }
+    .faq-item.open .arrow { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 24px 20px 68px;
+      font-size: 14px;
+      color: var(--gray600);
+      line-height: 1.8;
+      background: var(--white);
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ─── CTA FINAL ─── */
+    #cta-final {
+      background: linear-gradient(135deg, var(--navy2) 0%, var(--navy) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 96px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta-final::before {
+      content: '';
+      position: absolute;
+      top: -150px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(14,165,233,.15) 0%, transparent 70%);
+    }
+    #cta-final .inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    #cta-final .section-label { justify-content: center; }
+    #cta-final .section-title { color: var(--white); margin-bottom: 16px; }
+    #cta-final .desc { color: #94a3b8; margin-bottom: 40px; font-size: 16px; }
+    .cta-checklist {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+    .cta-checklist li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--white);
+    }
+    .cta-checklist li::before {
+      content: '✓';
+      color: var(--cyan);
+      font-weight: 900;
+      font-size: 16px;
+    }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #060d18;
+      color: #475569;
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+    }
+    footer strong { color: #64748b; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      .section { padding: 64px 0; }
+      .hero-stats { gap: 28px; }
+      .step-item::after { display: none; }
+      .pricing-banner { flex-direction: column; }
+      .pricing-banner a { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="inner">
+    <a href="#hero" class="logo">nakagawa<span>kikaku</span></a>
+    <div class="header-nav">
+      <a href="article.html" class="header-article-btn">
+        <span class="btn-icon">📝</span>お役立ち情報
+      </a>
+      <a href="#cta-final" class="header-cta">無料相談（30分）</a>
+    </div>
+  </div>
+</header>
+
+<!-- URGENT BANNER -->
+<div id="urgent">
+  <p>⚡ 2026年3月末まで特別価格実施中 — ABM戦略策定が <strong>80万円 → 50万円（税別）</strong>
+    <a href="#cta-final">今すぐ申し込む →</a>
+  </p>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">
+      「大手企業開拓」特化の<br>
+      <em>マーケティング</em>支援サービス<br>
+    </h1>
+    <p class="hero-sub">
+      <strong>大手企業開拓のプロフェッショナル</strong><br>
+      ABM戦略に基づき、大手企業のエグゼクティブとの接点を創出<br>
+    </p>
+    <div class="hero-btns">
+      <a href="#cta-final" class="btn btn-primary btn-large">無料相談（30分）に申し込む →</a>
+      <a href="#service" class="btn btn-outline">サービス詳細を見る</a>
+      <a href="article.html" class="btn-article">
+        <span class="btn-icon">📝</span>お役立ち情報
+      </a>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="section section-dark" id="pain">
+  <div class="container">
+    <div class="pain-intro">
+      <h2 class="section-title" style="color:var(--white);">
+        なぜ、大手企業開拓に<br>
+        「ABM」と「エグゼクティブ向け施策」が必要なのか？
+      </h2>
+      <p class="section-desc" style="margin:0 auto;">
+        「大手企業を開拓したいのに、なかなか成果が出ない」——そんな悩みを抱えていませんか？<br>
+        BtoB企業の多くがSMB向けの成功モデルをそのまま大手に適用し、壁にぶつかっています。
+      </p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">🚫</div>
+        <h3><strong>意思決定者に届かない</strong></h3>
+        <p>大手企業では購買に関わるステークホルダーが<strong>平均6〜10名</strong>。現場担当者にアプローチしても、決裁権を持つ経営層・部門長まで情報が届かず、案件が自然消滅するケースが後を絶ちません。</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">⏳</div>
+        <h3><strong>商談が長期化・停滞する</strong></h3>
+        <p>稟議フロー・合意形成・セキュリティ審査……大手特有のプロセスを理解しないまま提案すると、「塩漬け案件」が積み上がります。<strong>半年〜1年かけても受注に至らない</strong>ケースが頻発します。</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📉</div>
+        <h3>マーケ施策の<strong>ROIが見えない</strong></h3>
+        <p>リード数は増えても「大手の有効商談」に結びつかない。SMB向けのリードジェネレーション施策を大手に転用しても、<strong>ターゲット精度が低く、営業リソースだけが消耗</strong>していきます。</p>
+      </div>
+    </div>
+    <div class="pain-note">
+      <div class="pain-note-icon">⚠️</div>
+      <p>
+        <strong>これらの課題に共通する根本原因は、「大手企業の意思決定構造」を前提とした戦略がないこと。</strong><br>
+        SMBと同じ手法では、エンタープライズの壁は越えられません。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section" id="solution">
+  <div class="container">
+    <div class="solution-wrap">
+      <div class="solution-text">
+        <div class="section-label">解決策</div>
+        <h2 class="section-title">
+          どうすれば大手企業の<br>意思決定者と<br>
+          接点を持てるのか？
+        </h2>
+        <p>答えは、<strong>ABM戦略 × エグゼクティブ向け施策</strong>を掛け合わせた手法です。</p>
+        <p>相手が「<strong>この会社の話なら聞きたい</strong>」と思う戦略的なポジションを築き、確実に意思決定者と接点を作る状態をつくります。</p>
+        <div class="solution-check">
+          ✅ エンタープライズ開拓に必要なマーケティングを<strong>一気通貫</strong>で支援するコンサルティングサービスです。
+        </div>
+      </div>
+      <div class="solution-cards">
+        <div class="solution-card">
+          <div class="solution-card-tag">STRATEGY 01</div>
+          <h3>ABM（アカウント攻略）</h3>
+          <p>「特定の500名以上企業」の組織図を解読し、多層的なステークホルダーに個別最適化された価値を届けます。</p>
+        </div>
+        <div class="solution-card" style="border-left-color: var(--amber);">
+          <div class="solution-card-tag" style="color:var(--amber);">STRATEGY 02</div>
+          <h3>エグゼクティブ向け施策</h3>
+          <p>エグゼクティブとの接点を作ることで、営業の「コネ焼き尽くし」「初回訪問ですら会えない」といった生産性課題を解消します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section section-gray" id="comparison">
+  <div class="container">
+    <div class="section-label">比較</div>
+    <h2 class="section-title comp-title">他のマーケティング支援や営業代行と何が違うのか？</h2>
+    <p class="section-desc" style="margin-bottom:40px;">当サービスは「エンタープライズに特化」しているため、ABMとエグゼクティブ向け施策の掛け算という最も効果を出しやすい組み合わせを提供しています。</p>
+    <div class="comp-table-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>比較軸</th>
+            <th class="highlight-col">当サービス（ABM×エグゼクティブ施策）</th>
+            <th>一般的なマーケティング支援</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ゴール設計</td>
+            <td class="good">◎ 大手企業の受注から逆算した戦略設計</td>
+            <td class="so-so">△ リード「数」やMQL数になりやすい</td>
+          </tr>
+          <tr>
+            <td>ターゲティング</td>
+            <td class="good">◎ CRM・営業ヒアリングからTier分けしたアカウント戦略を構築</td>
+            <td class="so-so">△ 施策単位の支援が中心。最適化にとどまりやすい</td>
+          </tr>
+          <tr>
+            <td>アプローチ先</td>
+            <td class="good">◎ 経営層・部門長に直接リーチするエグゼクティブ施策を設計</td>
+            <td class="so-so">○ イベント等で接点は作れるが関係構築は範囲外が多い</td>
+          </tr>
+          <tr>
+            <td>ブランド・世界観の伝達</td>
+            <td class="good">◎ オフラインイベントやラウンドテーブル等で自社の世界観を直接届ける場を設計</td>
+            <td class="so-so">△ コンテンツ制作はするが体験設計は範囲外</td>
+          </tr>
+          <tr>
+            <td>マーケ×営業の連携</td>
+            <td class="good">◎ トスアップ基準・SLA・KPIを定義し部門間の一体運用を構築</td>
+            <td class="so-so">△ マーケ領域が中心。営業接続は範囲外が多い</td>
+          </tr>
+          <tr>
+            <td>再現性</td>
+            <td class="good">◎ 属人化しないエンプラ開拓の「型」をナレッジとして整備</td>
+            <td class="so-so">△ 施策レポートは残るが仕組みにはなりにくい</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="comp-note">
+      <strong>要するに、当サービスの強みは「ABM戦略×エグゼクティブ施策」を一気通貫でカバーすること。</strong><br>
+      営業代行の「商談獲得力」やマーケ支援の「リード創出力」——当サービスは、これらの施策の効果を最大化する"戦略の土台"を提供します。営業代行やマーケ支援と組み合わせることで、大手企業開拓の成果を飛躍的に高めることが可能です。
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE -->
+<section class="section section-dark" id="service">
+  <div class="container">
+    <div class="section-label">サービス概要</div>
+    <div class="service-target">
+      🏢 対象：従業員500名以上のエンタープライズ企業を開拓したいBtoB事業者様
+    </div>
+    <h2 class="section-title" style="color:var(--white);">
+      エンタープライズ開拓に必要な<br>戦略と施策を<span class="highlight">一気通貫</span>で支援
+    </h2>
+    <p class="section-desc">ABM戦略の策定と実行、そしてエグゼクティブ向け施策の掛け算で</p>
+    <p class="section-desc">アカウント攻略を実現</p>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-num">1</div>
+        <h3>エンタープライズ特化の戦略立案</h3>
+        <p>SMBとは全く異なる多層的な意思決定プロセス・稟議フロー・合意形成の構造を踏まえた戦略を策定。「刺さらない提案」を根本から見直します。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">2</div>
+        <h3>ABMの設計から実行まで一気通貫</h3>
+        <p>ペルソナ策定・ターゲットアカウント選定・1to1コンテンツ制作・マルチチャネル施策まで、戦略を「絵に描いた餅」で終わらせません。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">3</div>
+        <h3>エグゼクティブ向け特化施策</h3>
+        <p>CxO・部門長クラスとの接点を創出する、会食・ラウンドテーブル・限定セミナー等の場を設計。自社のブランドや世界観を直接届け、意思決定者との信頼関係を構築します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-label">料金プラン</div>
+    <h2 class="section-title">料金プラン</h2>
+    <div class="pricing-banner">
+      <div>
+        <p>⚡ 2026年3月末まで特別価格</p>
+        <p style="font-size:14px; margin-top:4px; opacity:.85;">ABM戦略策定が <s>80万円</s> → <strong style="font-size:20px;">50万円</strong>（税別）</p>
+      </div>
+      <a href="#cta-final">無料相談で詳細を確認 →</a>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>ABM戦略策定プラン</h3>
+        <div class="duration">期間：約1〜2ヶ月（単発）</div>
+        <div class="desc">ABM戦略の策定（ターゲット選定・アカウントTier設計・施策ロードマップ）をまとめて設計します。</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li>ターゲットアカウント選定</li>
+          <li>アカウントTier設計</li>
+          <li>施策ロードマップ作成</li>
+        </ul>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-badge">人気プラン</div>
+        <h3>GTM＆ABM戦略策定プラン</h3>
+        <div class="duration">期間：約2〜3ヶ月（単発）</div>
+        <div class="desc">GTM戦略の策定からABM施策設計まで一気通貫。市場分析・ICP定義・チャネル戦略含む包括的な戦略設計です。</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li>市場分析・ICP定義</li>
+          <li>チャネル戦略設計</li>
+          <li>ABM施策ロードマップ</li>
+          <li>GTM戦略策定</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <h3>実行支援プラン</h3>
+        <div class="duration">期間：3ヶ月毎契約</div>
+        <div class="desc">ABM戦略に基づいたエグゼクティブ向け施策の実行支援（施策運用・効果測定・改善提案）を継続的に提供します。</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li>エグゼクティブ施策の実行</li>
+          <li>効果測定・モニタリング</li>
+          <li>改善提案（PDCA）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pricing-note">
+      <p>※ 料金は税別表示です。</p>
+      <p>※ 企業規模、支援範囲により個別見積もりいたします。</p>
+      <p>※ まずは無料相談（30分）で課題をお聞かせください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="section section-navy2" id="steps">
+  <div class="container">
+    <div class="section-label">支援の流れ</div>
+    <h2 class="section-title" style="color:var(--white);">
+      ご支援のステップとイメージ
+    </h2>
+    <p class="section-desc">「戦略を作って終わり」ではなく、現状分析から施策実行・改善まで<strong style="color:var(--white);">一気通貫で伴走</strong>します。</p>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <h3>現状分析</h3>
+        <p>貴社のCRMの商談データを分析し、「どこを狙うべきか」を洗い出します。事業戦略との連携や営業へのインタビューを通じて、狙うべきセグメントを精緻化します。</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <h3>アカウントの特定</h3>
+        <p>セグメントに該当する企業をバイネームで洗い出し、優先順位（Tier）を設定。Tierが高い企業から現状を定量・定性で把握します。</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <h3>ABMプランの策定</h3>
+        <p>バイネームの現状分析をもとに、どのエグゼクティブにアプローチするか、そのための施策（イベント・個別DM・マス施策等）を決定します。</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <h3>施策実行とモニタリング</h3>
+        <p>設計した施策を実行し、効果をモニタリング。常に<strong style="color:var(--cyan);">ROIを最重要視</strong>し、投資対効果を追いながらPDCAを回します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-gray" id="faq">
+  <div class="container">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">よくあるご質問</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span>どのような企業規模が対象ですか？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">従業員500名以上のエンタープライズ企業を開拓したいBtoB事業者様が主な対象です。売上規模や業種は問いませんが、大手企業との取引を本格的に拡大したい企業様に特に適しています。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span>支援期間中、どの程度の稼働を想定すればいいですか？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">週次または隔週でのミーティング（1〜2時間程度）と情報共有をお願いしております。CRMデータや商談情報の共有など、初期のキャッチアップに少しご協力いただく必要がありますが、運用が軌道に乗れば負担は最小化されます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span>マーケティング組織がまだ小規模ですが、対応可能ですか？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">はい、対応可能です。マーケティング組織が小規模でも成果を出せる体制づくりから支援します。むしろ「これから整える」段階からご支援することで、効果的な仕組みを最初から構築できます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span>期間限定の割引はいつまでですか？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">2026年3月末までのお申し込みに限り、ABM戦略策定が80万円→50万円（税別）の特別価格でご提供しています。ご検討中の方はお早めにご相談ください。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span>他のマーケティングコンサルとの違いは何ですか？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">最大の違いは「エンタープライズ特化」と「ABM×エグゼクティブ施策の一気通貫」にあります。一般的なマーケ支援はリード数など施策単位の指標を追いがちですが、当サービスは大手企業の受注から逆算した戦略設計を行い、意思決定者への直接アプローチまでカバーします。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span>成果が出るまでの目安期間はどのくらいですか？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">戦略策定フェーズは1〜3ヶ月、施策実行により成果を実感いただけるのは3〜6ヶ月が目安です。大手企業の意思決定サイクルを踏まえた設計のため、継続的な取り組みが成果に直結します。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span>すでに営業代行会社を利用していますが、併用できますか？</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-a">はい、むしろ相乗効果が期待できます。営業代行の「実行力」に当サービスの「戦略設計」を掛け合わせることで、アプローチの精度と成果を大幅に向上させることができます。ターゲットアカウントの選定・経営層向けメッセージ設計・トスアップ基準の明確化など、営業代行の効果を最大化するための戦略基盤を構築します。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <div class="inner">
+    <div class="section-label" style="justify-content:center;">無料相談</div>
+    <h2 class="section-title">まずは無料相談（30分）から</h2>
+    <p class="desc">課題を整理するだけでも構いません。<br>エンタープライズ開拓の悩みをお気軽にご相談ください。</p>
+    <ul class="cta-checklist">
+      <li>貴社のエンタープライズ開拓における課題の整理</li>
+      <li>GTM・ABM導入の可能性診断</li>
+      <li>優先的に取り組むべき施策のご提案</li>
+      <li>支援内容・期間・費用の概算お見積もり</li>
+    </ul>
+    <div class="cta-btns">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3eFxQ8L0Mg0QoP0JK1jcV72kK1Q0BT6uHSTNjl7rH-r0MOQ/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">無料相談会に申し込む（Googleフォーム）</a>
+    </div>
+    <p style="margin-top:20px; font-size:13px; color:#475569;">
+      ⚡ 2026年3月末までの特別価格あり — ご検討中の方はお早めにご相談ください
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p><strong>nakagawa kikaku</strong></p>
+    <p style="margin-top:8px;">© 2026 中川企画. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+
+  // Header shadow on scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      header.style.boxShadow = '0 4px 24px rgba(0,0,0,.4)';
+    } else {
+      header.style.boxShadow = 'none';
+    }
+  });
+
+  // Intersection Observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.pain-card, .service-card, .pricing-card, .step-item, .solution-card, .faq-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
+
+
+
+
+

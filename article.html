@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お役立ち情報 | 中川企画</title>
-  <meta name="description" content="大手企業開拓・ABM戦略・エグゼクティブ施策に関する実践的なノウハウをお届けします。">
+  <meta name="description" content="大手企業開拓・ABM戦略・BDR・エグゼクティブ施策に関する実践的なノウハウをお届けします。">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
       --navy:    #08111f;
       --navy2:   #0e1e36;
@@ -17,6 +16,8 @@
       --amber:   #f59e0b;
       --green:   #10b981;
       --green2:  #34d399;
+      --orange:  #f97316;
+      --purple:  #8b5cf6;
       --white:   #ffffff;
       --gray50:  #f8fafc;
       --gray100: #f1f5f9;
@@ -26,558 +27,262 @@
       --gray700: #334155;
       --text:    #1e293b;
     }
-
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      color: var(--text);
-      background: var(--gray50);
-      line-height: 1.75;
-    }
+    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); background: var(--gray50); line-height: 1.75; }
 
-    /* ─── HEADER ─── */
+    /* HEADER */
     #header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(8,17,31,.94);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(8,17,31,.94); backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255,255,255,.07);
     }
     #header .inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      gap: 16px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; max-width: 1200px; margin: 0 auto; padding: 0 24px; gap: 16px;
     }
-    .logo {
-      font-size: 15px;
-      font-weight: 900;
-      color: var(--white);
-      text-decoration: none;
-      letter-spacing: .04em;
-    }
+    .logo { font-size: 15px; font-weight: 900; color: var(--white); text-decoration: none; letter-spacing: .04em; }
     .logo span { color: var(--cyan); }
-    .header-nav {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .header-nav { display: flex; align-items: center; gap: 8px; }
     .header-nav-link {
-      font-size: 13px;
-      color: rgba(255,255,255,.55);
-      text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: color .2s, background .2s;
-      font-weight: 500;
+      font-size: 13px; color: rgba(255,255,255,.55); text-decoration: none;
+      padding: 6px 12px; border-radius: 6px; transition: color .2s, background .2s; font-weight: 500;
     }
     .header-nav-link:hover { color: var(--white); background: rgba(255,255,255,.07); }
     .header-nav-link.active { color: var(--cyan); }
     .header-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      display: inline-flex; align-items: center; gap: 6px;
       background: linear-gradient(135deg, var(--cyan), #0284c7);
-      color: var(--white);
-      padding: 8px 20px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 2px 8px rgba(14,165,233,.3);
-      transition: opacity .2s, transform .2s;
+      color: var(--white); padding: 8px 20px; border-radius: 6px;
+      font-size: 13px; font-weight: 700; text-decoration: none;
+      box-shadow: 0 2px 8px rgba(14,165,233,.3); transition: opacity .2s, transform .2s;
     }
     .header-cta:hover { opacity: .88; transform: translateY(-1px); }
 
-    /* ─── PAGE HERO ─── */
+    /* PAGE HERO */
     .page-hero {
       background: linear-gradient(145deg, var(--navy) 0%, var(--navy2) 60%, #0a1628 100%);
-      padding: 80px 0 72px;
-      margin-top: 64px;
-      position: relative;
-      overflow: hidden;
+      padding: 80px 0 72px; margin-top: 64px; position: relative; overflow: hidden;
     }
     .page-hero::before {
-      content: '';
-      position: absolute;
-      top: -80px; right: -80px;
+      content: ''; position: absolute; top: -80px; right: -80px;
       width: 480px; height: 480px;
       background: radial-gradient(circle, rgba(14,165,233,.13) 0%, transparent 65%);
-      pointer-events: none;
     }
     .page-hero::after {
-      content: '';
-      position: absolute;
-      bottom: -60px; left: 5%;
+      content: ''; position: absolute; bottom: -60px; left: 5%;
       width: 300px; height: 300px;
       background: radial-gradient(circle, rgba(16,185,129,.08) 0%, transparent 65%);
-      pointer-events: none;
     }
-    .page-hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+    .page-hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     .page-hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      margin-bottom: 16px;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 16px;
     }
-    .page-hero-eyebrow::before {
-      content: '';
-      width: 24px; height: 2px;
-      background: var(--cyan);
-      border-radius: 2px;
-    }
-    .page-hero-title {
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 900;
-      color: var(--white);
-      letter-spacing: -.02em;
-      line-height: 1.25;
-      margin-bottom: 14px;
-    }
-    .page-hero-desc {
-      font-size: 15px;
-      color: rgba(255,255,255,.5);
-      max-width: 520px;
-      line-height: 1.85;
-    }
+    .page-hero-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--cyan); border-radius: 2px; }
+    .page-hero-title { font-size: clamp(28px,4vw,44px); font-weight: 900; color: var(--white); letter-spacing: -.02em; line-height: 1.25; margin-bottom: 14px; }
+    .page-hero-desc { font-size: 15px; color: rgba(255,255,255,.5); max-width: 540px; line-height: 1.85; }
 
-    /* ─── FILTER TABS ─── */
+    /* FILTER */
     .filter-bar {
-      background: var(--white);
-      border-bottom: 1px solid var(--gray200);
-      position: sticky;
-      top: 64px;
-      z-index: 50;
-      box-shadow: 0 2px 10px rgba(0,0,0,.04);
+      background: var(--white); border-bottom: 1px solid var(--gray200);
+      position: sticky; top: 64px; z-index: 50; box-shadow: 0 2px 10px rgba(0,0,0,.04);
     }
     .filter-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      overflow-x: auto;
-      scrollbar-width: none;
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; gap: 2px;
+      overflow-x: auto; scrollbar-width: none;
     }
     .filter-inner::-webkit-scrollbar { display: none; }
     .filter-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 16px 18px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--gray600);
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: color .2s, border-color .2s;
-      font-family: inherit;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 15px 16px; font-size: 13px; font-weight: 700; color: var(--gray600);
+      background: none; border: none; border-bottom: 2px solid transparent;
+      cursor: pointer; white-space: nowrap; transition: color .2s, border-color .2s; font-family: inherit;
     }
     .filter-btn:hover { color: var(--text); }
     .filter-btn.active { color: var(--cyan); border-bottom-color: var(--cyan); }
     .filter-btn .count {
-      background: var(--gray100);
-      color: var(--gray600);
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 7px;
-      border-radius: 999px;
-      min-width: 20px;
-      text-align: center;
+      background: var(--gray100); color: var(--gray600); font-size: 10px; font-weight: 700;
+      padding: 1px 6px; border-radius: 999px; min-width: 18px; text-align: center;
     }
     .filter-btn.active .count { background: rgba(14,165,233,.12); color: var(--cyan); }
 
-    /* ─── MAIN LAYOUT ─── */
+    /* LAYOUT */
     .content-wrap {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 48px 24px 80px;
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 48px;
-      align-items: start;
+      max-width: 1200px; margin: 0 auto; padding: 48px 24px 80px;
+      display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start;
     }
-    @media (max-width: 960px) {
-      .content-wrap { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 960px) { .content-wrap { grid-template-columns: 1fr; } }
 
-    /* ─── ARTICLE AREA ─── */
+    /* ARTICLES HEADER */
     .articles-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-      gap: 12px;
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
     }
     .articles-count { font-size: 13px; color: var(--gray600); }
     .articles-count strong { color: var(--text); }
     .sort-select {
-      font-size: 12px;
-      color: var(--gray600);
-      border: 1px solid var(--gray200);
-      border-radius: 6px;
-      padding: 6px 10px;
-      background: var(--white);
-      cursor: pointer;
-      font-family: inherit;
+      font-size: 12px; color: var(--gray600); border: 1px solid var(--gray200);
+      border-radius: 6px; padding: 6px 10px; background: var(--white);
+      cursor: pointer; font-family: inherit;
     }
 
-    /* FEATURED ARTICLE */
+    /* FEATURED */
     .article-featured {
-      background: var(--white);
-      border-radius: 16px;
-      border: 1px solid var(--gray200);
-      overflow: hidden;
-      margin-bottom: 28px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      text-decoration: none;
-      color: inherit;
-      box-shadow: 0 2px 12px rgba(0,0,0,.05);
-      transition: box-shadow .25s, transform .25s;
+      background: var(--white); border-radius: 16px; border: 1px solid var(--gray200);
+      overflow: hidden; margin-bottom: 28px; display: grid; grid-template-columns: 1fr 1fr;
+      text-decoration: none; color: inherit;
+      box-shadow: 0 2px 12px rgba(0,0,0,.05); transition: box-shadow .25s, transform .25s;
     }
-    .article-featured:hover {
-      box-shadow: 0 12px 40px rgba(0,0,0,.1);
-      transform: translateY(-3px);
-    }
-    @media (max-width: 640px) {
-      .article-featured { grid-template-columns: 1fr; }
-    }
-    .featured-thumb {
-      position: relative;
-      overflow: hidden;
-      background: var(--navy);
-      min-height: 260px;
-    }
+    .article-featured:hover { box-shadow: 0 12px 40px rgba(0,0,0,.1); transform: translateY(-3px); }
+    @media (max-width: 640px) { .article-featured { grid-template-columns: 1fr; } }
+    .featured-thumb { position: relative; overflow: hidden; background: var(--navy); min-height: 260px; }
     .featured-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: left center;
-      display: block;
-      transition: transform .5s ease;
+      width: 100%; height: 100%; object-fit: cover; object-position: left center;
+      display: block; transition: transform .5s ease;
     }
     .article-featured:hover .featured-thumb img { transform: scale(1.03); }
     .featured-body { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
-    .featured-meta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-    }
+    .featured-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
     .cat-pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 700;
+      display: inline-flex; align-items: center;
+      padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
     }
-    .cat-pill.abm  { background: rgba(14,165,233,.1);  color: #0369a1; border: 1px solid rgba(14,165,233,.25); }
-    .cat-pill.gtm  { background: rgba(245,158,11,.1);  color: #b45309; border: 1px solid rgba(245,158,11,.25); }
-    .cat-pill.exec { background: rgba(16,185,129,.1);  color: #065f46; border: 1px solid rgba(16,185,129,.25); }
-    .cat-pill.case { background: rgba(239,68,68,.1);   color: #b91c1c; border: 1px solid rgba(239,68,68,.25);  }
+    .cat-pill.abm    { background: rgba(14,165,233,.1);  color: #0369a1; border: 1px solid rgba(14,165,233,.25); }
+    .cat-pill.gtm    { background: rgba(245,158,11,.1);  color: #b45309; border: 1px solid rgba(245,158,11,.25); }
+    .cat-pill.exec   { background: rgba(16,185,129,.1);  color: #065f46; border: 1px solid rgba(16,185,129,.25); }
+    .cat-pill.bdr    { background: rgba(139,92,246,.1);  color: #5b21b6; border: 1px solid rgba(139,92,246,.25); }
+    .cat-pill.media  { background: rgba(249,115,22,.1);  color: #9a3412; border: 1px solid rgba(249,115,22,.25); }
     .feat-badge {
-      font-size: 10px;
-      font-weight: 700;
-      background: var(--amber);
-      color: #78350f;
-      padding: 3px 8px;
-      border-radius: 4px;
-      letter-spacing: .06em;
+      font-size: 10px; font-weight: 700; background: var(--amber);
+      color: #78350f; padding: 3px 8px; border-radius: 4px; letter-spacing: .06em;
     }
     .featured-title {
-      font-size: 20px;
-      font-weight: 900;
-      color: var(--text);
-      line-height: 1.45;
-      letter-spacing: -.01em;
-      margin-bottom: 12px;
+      font-size: 20px; font-weight: 900; color: var(--text);
+      line-height: 1.45; letter-spacing: -.01em; margin-bottom: 12px;
     }
     .featured-desc {
-      font-size: 13px;
-      color: var(--gray600);
-      line-height: 1.85;
-      margin-bottom: 20px;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      font-size: 13px; color: var(--gray600); line-height: 1.85; margin-bottom: 20px;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
     }
     .featured-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
     }
     .article-date { font-size: 11px; color: var(--gray600); }
-    .read-more {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--cyan);
-      transition: gap .2s;
-    }
+    .read-more { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 700; color: var(--cyan); transition: gap .2s; }
     .article-featured:hover .read-more { gap: 9px; }
 
-    /* ARTICLE GRID */
-    .article-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
+    /* CARD GRID */
+    .article-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     @media (max-width: 640px) { .article-grid { grid-template-columns: 1fr; } }
-
     .article-card {
-      background: var(--white);
-      border-radius: 14px;
-      border: 1px solid var(--gray200);
-      overflow: hidden;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      transition: box-shadow .25s, transform .25s;
+      background: var(--white); border-radius: 14px; border: 1px solid var(--gray200);
+      overflow: hidden; text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; transition: box-shadow .25s, transform .25s;
       box-shadow: 0 1px 6px rgba(0,0,0,.04);
     }
-    .article-card:hover {
-      box-shadow: 0 10px 32px rgba(0,0,0,.1);
-      transform: translateY(-4px);
-    }
-    .card-thumb {
-      height: 160px;
-      position: relative;
-      overflow: hidden;
-      background: var(--navy);
-    }
+    .article-card:hover { box-shadow: 0 10px 32px rgba(0,0,0,.1); transform: translateY(-4px); }
+    .card-thumb { height: 160px; position: relative; overflow: hidden; background: var(--navy); }
     .card-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: left center;
-      display: block;
-      transition: transform .4s ease;
+      width: 100%; height: 100%; object-fit: cover; object-position: left center;
+      display: block; transition: transform .4s ease;
     }
     .article-card:hover .card-thumb img { transform: scale(1.04); }
     .card-new {
-      position: absolute;
-      top: 10px; right: 10px;
-      background: var(--cyan);
-      color: var(--white);
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      padding: 2px 7px;
-      border-radius: 4px;
-      z-index: 1;
+      position: absolute; top: 10px; right: 10px; background: var(--cyan); color: var(--white);
+      font-size: 9px; font-weight: 700; letter-spacing: .08em; padding: 2px 7px; border-radius: 4px; z-index: 1;
     }
-    .card-body {
-      padding: 20px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .card-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-      flex-wrap: wrap;
-    }
+    .card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
     .card-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.65;
-      margin-bottom: 8px;
-      flex: 1;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.65; margin-bottom: 8px; flex: 1;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
     }
     .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: auto;
-      padding-top: 12px;
-      border-top: 1px solid var(--gray100);
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: auto; padding-top: 12px; border-top: 1px solid var(--gray100);
     }
     .card-date { font-size: 11px; color: var(--gray300); }
-    .card-arrow {
-      font-size: 13px;
-      color: var(--gray300);
-      transition: color .2s, transform .2s;
-    }
+    .card-arrow { font-size: 13px; color: var(--gray300); transition: color .2s, transform .2s; }
     .article-card:hover .card-arrow { color: var(--cyan); transform: translateX(3px); }
 
     /* LOAD MORE */
-    .load-more-wrap {
-      text-align: center;
-      margin-top: 32px;
-    }
+    .load-more-wrap { text-align: center; margin-top: 32px; }
     .load-more-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 32px;
-      background: var(--white);
-      color: var(--gray700);
-      border: 1.5px solid var(--gray200);
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: inherit;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; background: var(--white); color: var(--gray700);
+      border: 1.5px solid var(--gray200); border-radius: 8px;
+      font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit;
       transition: border-color .2s, color .2s, box-shadow .2s;
     }
     .load-more-btn:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 4px 12px rgba(14,165,233,.1); }
 
-    /* ─── SIDEBAR ─── */
-    .sidebar {
-      position: sticky;
-      top: 120px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 120px; display: flex; flex-direction: column; gap: 20px; }
     .sidebar-cta {
       background: linear-gradient(145deg, var(--navy2), var(--navy));
-      border-radius: 14px;
-      padding: 26px 22px;
-      text-align: center;
-      border: 1px solid rgba(14,165,233,.18);
-      position: relative;
-      overflow: hidden;
+      border-radius: 14px; padding: 26px 22px; text-align: center;
+      border: 1px solid rgba(14,165,233,.18); position: relative; overflow: hidden;
     }
     .sidebar-cta::before {
-      content: '';
-      position: absolute;
-      top: -50px; right: -50px;
-      width: 180px; height: 180px;
-      background: radial-gradient(circle, rgba(14,165,233,.15) 0%, transparent 65%);
-      pointer-events: none;
+      content: ''; position: absolute; top: -50px; right: -50px; width: 180px; height: 180px;
+      background: radial-gradient(circle, rgba(14,165,233,.15) 0%, transparent 65%); pointer-events: none;
     }
-    .sidebar-cta-label {
-      font-size: 10px; font-weight: 700; letter-spacing: .18em;
-      text-transform: uppercase; color: var(--cyan);
-      margin-bottom: 10px; position: relative;
-    }
-    .sidebar-cta-title {
-      font-size: 15px; font-weight: 900; color: var(--white);
-      line-height: 1.5; margin-bottom: 8px; position: relative;
-    }
-    .sidebar-cta-desc {
-      font-size: 12px; color: rgba(255,255,255,.5);
-      line-height: 1.8; margin-bottom: 18px; position: relative;
-    }
+    .sidebar-cta-label { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--cyan); margin-bottom: 10px; position: relative; }
+    .sidebar-cta-title { font-size: 15px; font-weight: 900; color: var(--white); line-height: 1.5; margin-bottom: 8px; position: relative; }
+    .sidebar-cta-desc { font-size: 12px; color: rgba(255,255,255,.5); line-height: 1.8; margin-bottom: 18px; position: relative; }
     .sidebar-btn {
-      display: block; width: 100%;
-      padding: 12px 14px;
+      display: block; width: 100%; padding: 12px 14px;
       background: linear-gradient(135deg, var(--cyan), #0284c7);
-      color: var(--white); font-size: 13px; font-weight: 700;
-      border-radius: 8px; text-decoration: none; text-align: center;
-      box-shadow: 0 4px 12px rgba(14,165,233,.3);
-      transition: opacity .2s, transform .2s; position: relative;
+      color: var(--white); font-size: 13px; font-weight: 700; border-radius: 8px;
+      text-decoration: none; text-align: center;
+      box-shadow: 0 4px 12px rgba(14,165,233,.3); transition: opacity .2s, transform .2s; position: relative;
     }
     .sidebar-btn:hover { opacity: .88; transform: translateY(-2px); }
-    .sidebar-urgent {
-      font-size: 11px; color: #fcd34d; margin-top: 10px; font-weight: 700; position: relative;
-    }
+    .sidebar-urgent { font-size: 11px; color: #fcd34d; margin-top: 10px; font-weight: 700; position: relative; }
     .sidebar-popular {
-      background: var(--white);
-      border: 1px solid var(--gray200);
-      border-radius: 14px;
-      padding: 22px 20px;
-      box-shadow: 0 1px 6px rgba(0,0,0,.04);
+      background: var(--white); border: 1px solid var(--gray200);
+      border-radius: 14px; padding: 22px 20px; box-shadow: 0 1px 6px rgba(0,0,0,.04);
     }
     .sidebar-sec-title {
-      font-size: 12px; font-weight: 700;
-      letter-spacing: .1em; text-transform: uppercase;
-      color: var(--gray600); margin-bottom: 16px;
-      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--gray600); margin-bottom: 16px; display: flex; align-items: center; gap: 6px;
     }
-    .sidebar-sec-title::before {
-      content: ''; width: 3px; height: 12px;
-      background: var(--cyan); border-radius: 2px;
-    }
+    .sidebar-sec-title::before { content: ''; width: 3px; height: 12px; background: var(--cyan); border-radius: 2px; }
     .popular-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
     .popular-list a {
       display: flex; gap: 12px; align-items: flex-start;
-      padding: 10px 8px; border-radius: 8px;
-      text-decoration: none; transition: background .15s;
+      padding: 10px 8px; border-radius: 8px; text-decoration: none; transition: background .15s;
     }
     .popular-list a:hover { background: var(--gray50); }
-    .pop-num {
-      flex-shrink: 0; font-size: 16px; font-weight: 900;
-      color: var(--gray200); width: 20px; line-height: 1.4;
-    }
+    .pop-num { flex-shrink: 0; font-size: 16px; font-weight: 900; color: var(--gray200); width: 20px; line-height: 1.4; }
     .popular-list li:nth-child(1) .pop-num { color: #f59e0b; }
     .popular-list li:nth-child(2) .pop-num { color: #94a3b8; }
     .popular-list li:nth-child(3) .pop-num { color: #b45309; }
     .pop-text { font-size: 12px; color: var(--gray700); line-height: 1.6; font-weight: 500; }
     .popular-list a:hover .pop-text { color: var(--cyan); }
-
     .sidebar-tags {
-      background: var(--white);
-      border: 1px solid var(--gray200);
-      border-radius: 14px;
-      padding: 22px 20px;
-      box-shadow: 0 1px 6px rgba(0,0,0,.04);
+      background: var(--white); border: 1px solid var(--gray200);
+      border-radius: 14px; padding: 22px 20px; box-shadow: 0 1px 6px rgba(0,0,0,.04);
     }
     .tag-cloud { display: flex; flex-wrap: wrap; gap: 7px; }
     .tag-item {
-      display: inline-block; padding: 5px 12px;
-      background: var(--gray100); border: 1px solid var(--gray200);
-      border-radius: 999px; font-size: 11px; font-weight: 700;
-      color: var(--gray600); text-decoration: none;
-      transition: background .15s, border-color .15s, color .15s;
+      display: inline-block; padding: 5px 12px; background: var(--gray100);
+      border: 1px solid var(--gray200); border-radius: 999px; font-size: 11px; font-weight: 700;
+      color: var(--gray600); text-decoration: none; transition: background .15s, border-color .15s, color .15s;
     }
     .tag-item:hover { background: rgba(14,165,233,.08); border-color: var(--cyan); color: var(--cyan); }
 
-    /* ─── NEWSLETTER ─── */
+    /* NEWSLETTER */
     .newsletter-band {
       background: linear-gradient(135deg, var(--navy2), var(--navy));
-      border-top: 1px solid rgba(14,165,233,.12);
-      border-bottom: 1px solid rgba(14,165,233,.12);
-      padding: 56px 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      border-top: 1px solid rgba(14,165,233,.12); border-bottom: 1px solid rgba(14,165,233,.12);
+      padding: 56px 0; text-align: center; position: relative; overflow: hidden;
     }
     .newsletter-band::before {
-      content: '';
-      position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(14,165,233,.1) 0%, transparent 65%);
-      pointer-events: none;
+      content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+      width: 500px; height: 500px; background: radial-gradient(circle, rgba(14,165,233,.1) 0%, transparent 65%); pointer-events: none;
     }
     .newsletter-inner { position: relative; z-index: 1; max-width: 520px; margin: 0 auto; padding: 0 24px; }
     .nl-label { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--cyan); margin-bottom: 12px; }
@@ -594,31 +299,26 @@
     .nl-input:focus { border-color: var(--cyan); }
     .nl-submit {
       padding: 13px 24px; background: linear-gradient(135deg, var(--cyan), #0284c7);
-      color: var(--white); font-size: 14px; font-weight: 700;
-      border: none; border-radius: 8px; cursor: pointer; font-family: inherit;
-      box-shadow: 0 4px 12px rgba(14,165,233,.3);
-      transition: opacity .2s; white-space: nowrap;
+      color: var(--white); font-size: 14px; font-weight: 700; border: none;
+      border-radius: 8px; cursor: pointer; font-family: inherit;
+      box-shadow: 0 4px 12px rgba(14,165,233,.3); transition: opacity .2s; white-space: nowrap;
     }
     .nl-submit:hover { opacity: .88; }
 
-    /* ─── FOOTER ─── */
+    /* FOOTER */
     footer {
-      background: #02060f;
-      border-top: 1px solid rgba(255,255,255,.04);
-      padding: 32px 24px;
-      text-align: center;
-      font-size: 12px;
-      color: #374151;
+      background: #02060f; border-top: 1px solid rgba(255,255,255,.04);
+      padding: 32px 24px; text-align: center; font-size: 12px; color: #374151;
     }
     footer strong { color: #4b5563; }
     footer a { color: var(--cyan); text-decoration: none; font-size: 12px; margin: 0 6px; }
 
-    /* ─── ANIMATION ─── */
+    /* ANIMATION */
     .fade-in { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
     .fade-in.visible { opacity: 1; transform: none; }
 
     @media (max-width: 640px) {
-      .featured-thumb { min-height: 160px; }
+      .featured-thumb { min-height: 180px; }
       .header-nav-link { display: none; }
     }
   </style>
@@ -643,18 +343,19 @@
   <div class="page-hero-inner">
     <div class="page-hero-eyebrow">Knowledge Hub</div>
     <h1 class="page-hero-title">お役立ち情報</h1>
-    <p class="page-hero-desc">大手企業開拓・ABM戦略・エグゼクティブ施策に関する<br>実践的なノウハウを、現場の視点でお届けします。</p>
+    <p class="page-hero-desc">大手企業開拓・ABM戦略・BDR・エグゼクティブ施策に関する実践的なノウハウを、現場の視点でお届けします。</p>
   </div>
 </div>
 
 <!-- FILTER TABS -->
 <div class="filter-bar">
   <div class="filter-inner">
-    <button class="filter-btn active" onclick="filterArticles('all', this)">すべて <span class="count">12</span></button>
-    <button class="filter-btn" onclick="filterArticles('abm',  this)">ABM戦略 <span class="count">4</span></button>
-    <button class="filter-btn" onclick="filterArticles('gtm',  this)">GTM戦略 <span class="count">3</span></button>
-    <button class="filter-btn" onclick="filterArticles('exec', this)">エグゼクティブ施策 <span class="count">3</span></button>
-    <button class="filter-btn" onclick="filterArticles('case', this)">支援事例 <span class="count">2</span></button>
+    <button class="filter-btn active" onclick="filterArticles('all',  this)">すべて          <span class="count">15</span></button>
+    <button class="filter-btn"        onclick="filterArticles('abm',  this)">ABM戦略         <span class="count">3</span></button>
+    <button class="filter-btn"        onclick="filterArticles('gtm',  this)">GTM戦略         <span class="count">3</span></button>
+    <button class="filter-btn"        onclick="filterArticles('exec', this)">エグゼクティブ施策<span class="count">1</span></button>
+    <button class="filter-btn"        onclick="filterArticles('bdr',  this)">BDR             <span class="count">3</span></button>
+    <button class="filter-btn"        onclick="filterArticles('media',this)">媒体・広告       <span class="count">5</span></button>
   </div>
 </div>
 
@@ -662,22 +363,22 @@
 <div class="content-wrap">
   <main>
     <div class="articles-header">
-      <p class="articles-count">全 <strong>12</strong> 記事</p>
+      <p class="articles-count">全 <strong>15</strong> 記事</p>
       <select class="sort-select"><option>新着順</option><option>人気順</option></select>
     </div>
 
-    <!-- FEATURED -->
+    <!-- FEATURED: A03 ABM解説 -->
     <a href="article-detail.html" class="article-featured fade-in" data-cat="abm">
       <div class="featured-thumb">
-        <img src="banners/banner_abm_guide.svg" alt="ABM戦略とは？大手企業開拓で成果を出すための完全ガイド">
+        <img src="banners/banner_A03.svg" alt="ABM（アカウントベースドマーケティング）とは？">
       </div>
       <div class="featured-body">
         <div class="featured-meta">
           <span class="cat-pill abm">ABM戦略</span>
           <span class="feat-badge">⭐ 注目記事</span>
         </div>
-        <h2 class="featured-title">ABM戦略とは？大手企業開拓で成果を出すための完全ガイド【2025年最新版】</h2>
-        <p class="featured-desc">アカウントベースドマーケティング（ABM）の基本から設計・実行まで徹底解説。SMBと全く異なる大手企業の意思決定構造を前提に、ターゲット選定・Tier設計・エグゼクティブ施策の立て方を体系的に紹介します。</p>
+        <h2 class="featured-title">ABM（アカウントベースドマーケティング）とは？大手企業開拓で効果を出す方法を解説</h2>
+        <p class="featured-desc">ABMの基本概念から日本のBtoB企業が実践できる設計方法まで徹底解説。概念・実行3ステップ・落とし穴4つ・おすすめツール5選まで一気通貫でカバーします。</p>
         <div class="featured-footer">
           <span class="article-date">📅 2026年2月28日</span>
           <span class="read-more">記事を読む →</span>
@@ -688,22 +389,176 @@
     <!-- GRID -->
     <div class="article-grid" id="article-grid">
 
-      <a href="#" class="article-card fade-in" data-cat="gtm">
+      <!-- A02 -->
+      <a href="#" class="article-card fade-in" data-cat="abm">
         <div class="card-thumb">
-          <img src="banners/banner_gtm_design.svg" alt="GTM戦略の設計方法">
+          <img src="banners/banner_A02.svg" alt="大手企業初受注ロードマップ">
           <span class="card-new">NEW</span>
         </div>
         <div class="card-body">
-          <div class="card-meta"><span class="cat-pill gtm">GTM戦略</span></div>
-          <p class="card-title">GTM戦略の設計方法：エンタープライズ市場への参入で押さえるべき5つのポイント</p>
+          <div class="card-meta"><span class="cat-pill abm">ABM戦略</span></div>
+          <p class="card-title">【2025年版】BtoBで大手企業に初めて受注するための完全ロードマップ</p>
           <div class="card-footer"><span class="card-date">2026年2月20日</span><span class="card-arrow">→</span></div>
         </div>
       </a>
-    </div>
 
-    <div class="load-more-wrap fade-in">
-      <button class="load-more-btn" onclick="loadMore(this)">さらに記事を読む（残り4件）</button>
-    </div>
+      <!-- A04 -->
+      <a href="#" class="article-card fade-in" data-cat="gtm">
+        <div class="card-thumb">
+          <img src="banners/banner_A04.svg" alt="GTM戦略大手企業向け">
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="cat-pill gtm">GTM戦略</span></div>
+          <p class="card-title">GTM戦略とは？大手企業向けにゼロから作る方法とよくある失敗パターン</p>
+          <div class="card-footer"><span class="card-date">2026年2月10日</span><span class="card-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- B01 -->
+      <a href="#" class="article-card fade-in" data-cat="media">
+        <div class="card-thumb">
+          <img src="banners/banner_B01.svg" alt="BtoB展示会7選">
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="cat-pill media">媒体・広告</span></div>
+          <p class="card-title">大手企業のキーマンに会えるBtoB展示会・カンファレンス7選【2025年版】</p>
+          <div class="card-footer"><span class="card-date">2026年1月28日</span><span class="card-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- B02 -->
+      <a href="#" class="article-card fade-in" data-cat="exec">
+        <div class="card-thumb">
+          <img src="banners/banner_B02.svg" alt="エグゼクティブイベント">
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="cat-pill exec">エグゼクティブ施策</span></div>
+          <p class="card-title">エグゼクティブ（役員・CxO）向けイベントで商談を作る方法と成功企業の共通点</p>
+          <div class="card-footer"><span class="card-date">2026年1月20日</span><span class="card-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- B03 -->
+      <a href="#" class="article-card fade-in" data-cat="media">
+        <div class="card-thumb">
+          <img src="banners/banner_B03.svg" alt="ウェビナー媒体比較">
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="cat-pill media">媒体・広告</span></div>
+          <p class="card-title">ウェビナーで大手企業リードを獲得するには？媒体別の比較と成功のコツ</p>
+          <div class="card-footer"><span class="card-date">2026年1月15日</span><span class="card-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- C01 -->
+      <a href="#" class="article-card fade-in" data-cat="abm">
+        <div class="card-thumb">
+          <img src="banners/banner_C01.svg" alt="ABMツール比較5選">
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="cat-pill abm">ABM戦略</span></div>
+          <p class="card-title">【2025年最新】ABMツール比較5選！大手企業開拓に使えるおすすめはどれ？</p>
+          <div class="card-footer"><span class="card-date">2026年1月8日</span><span class="card-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- C02 -->
+      <a href="#" class="article-card fade-in" data-cat="gtm">
+        <div class="card-thumb">
+          <img src="banners/banner_C02.svg" alt="インテントデータ Sales Marker">
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="cat-pill gtm">GTM戦略</span></div>
+          <p class="card-title">インテントデータとは？Sales Markerを使った大手企業へのBDRアプローチ事例</p>
+          <div class="card-footer"><span class="card-date">2025年12月22日</span><span class="card-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- C03 -->
+      <a href="#" class="article-card fade-in" data-cat="gtm">
+        <div class="card-thumb">
+          <img src="banners/banner_C03.svg" alt="ユーソナー エンタープライズ">
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="cat-pill gtm">GTM戦略</span></div>
+          <p class="card-title">ユーソナーでエンタープライズ開拓を加速する方法【活用事例・連携方法も解説】</p>
+          <div class="card-footer"><span class="card-date">2025年12月10日</span><span class="card-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- D01 -->
+      <a href="#" class="article-card fade-in" data-cat="bdr">
+        <div class="card-thumb">
+          <img src="banners/banner_D01.svg" alt="BDR解説">
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="cat-pill bdr">BDR</span></div>
+          <p class="card-title">BDR（ビジネス・デベロップメント・レップ）とは？大手企業へのアウトバウンド戦略を解説</p>
+          <div class="card-footer"><span class="card-date">2025年11月28日</span><span class="card-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- D02 -->
+      <a href="#" class="article-card fade-in" data-cat="bdr">
+        <div class="card-thumb">
+          <img src="banners/banner_D02.svg" alt="手紙コールメール">
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="cat-pill bdr">BDR</span></div>
+          <p class="card-title">手紙×コール×メールの組み合わせで大手役員アポを獲得する3ステップ</p>
+          <div class="card-footer"><span class="card-date">2025年11月15日</span><span class="card-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- D03 -->
+      <a href="#" class="article-card fade-in" data-cat="bdr">
+        <div class="card-thumb">
+          <img src="banners/banner_D03.svg" alt="BDR立ち上げ">
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="cat-pill bdr">BDR</span></div>
+          <p class="card-title">BDR立ち上げで失敗しない方法：ゼロから3,000社リストを作りアポ率を上げた実例</p>
+          <div class="card-footer"><span class="card-date">2025年11月1日</span><span class="card-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- E01 -->
+      <a href="#" class="article-card fade-in" data-cat="media">
+        <div class="card-thumb">
+          <img src="banners/banner_E01.svg" alt="ホワイトペーパー媒体比較7選">
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="cat-pill media">媒体・広告</span></div>
+          <p class="card-title">BtoBホワイトペーパーでリードを獲得できる媒体7選！費用・リード質の比較</p>
+          <div class="card-footer"><span class="card-date">2025年10月20日</span><span class="card-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- E02 -->
+      <a href="#" class="article-card fade-in" data-cat="media">
+        <div class="card-thumb">
+          <img src="banners/banner_E02.svg" alt="LinkedIn広告">
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="cat-pill media">媒体・広告</span></div>
+          <p class="card-title">LinkedIn広告で大手企業担当者にリーチする方法【役職・業種ターゲティング完全ガイド】</p>
+          <div class="card-footer"><span class="card-date">2025年10月8日</span><span class="card-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- E03 -->
+      <a href="#" class="article-card fade-in" data-cat="media">
+        <div class="card-thumb">
+          <img src="banners/banner_E03.svg" alt="IT系比較サイト">
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="cat-pill media">媒体・広告</span></div>
+          <p class="card-title">IT系比較サイト（ITreview・BOXILほか）への掲載で大手企業リードを狙う方法</p>
+          <div class="card-footer"><span class="card-date">2025年9月25日</span><span class="card-arrow">→</span></div>
+        </div>
+      </a>
+
+    </div><!-- /article-grid -->
   </main>
 
   <!-- SIDEBAR -->
@@ -719,7 +574,11 @@
     <div class="sidebar-popular">
       <div class="sidebar-sec-title">人気記事</div>
       <ul class="popular-list">
-        <li><a href="article-detail.html"><span class="pop-num">1</span><span class="pop-text">ABM戦略とは？大手企業開拓で成果を出すための完全ガイド</span></a></li>
+        <li><a href="article-detail.html"><span class="pop-num">1</span><span class="pop-text">ABMとは？大手企業開拓で効果を出す方法を解説</span></a></li>
+        <li><a href="#"><span class="pop-num">2</span><span class="pop-text">手紙×コール×メールで大手役員アポを獲得する3ステップ</span></a></li>
+        <li><a href="#"><span class="pop-num">3</span><span class="pop-text">BDRとは？大手企業へのアウトバウンド戦略を徹底解説</span></a></li>
+        <li><a href="#"><span class="pop-num">4</span><span class="pop-text">LinkedIn広告で大手企業担当者にリーチする方法</span></a></li>
+        <li><a href="#"><span class="pop-num">5</span><span class="pop-text">GTM戦略とは？大手企業向けにゼロから作る方法</span></a></li>
       </ul>
     </div>
 
@@ -727,15 +586,18 @@
       <div class="sidebar-sec-title">タグ一覧</div>
       <div class="tag-cloud">
         <a href="#" class="tag-item">#ABM戦略</a>
-        <a href="#" class="tag-item">#エンタープライズ</a>
         <a href="#" class="tag-item">#GTM戦略</a>
+        <a href="#" class="tag-item">#BDR</a>
         <a href="#" class="tag-item">#エグゼクティブ施策</a>
         <a href="#" class="tag-item">#大手企業開拓</a>
         <a href="#" class="tag-item">#ICP</a>
-        <a href="#" class="tag-item">#ラウンドテーブル</a>
-        <a href="#" class="tag-item">#支援事例</a>
-        <a href="#" class="tag-item">#BtoB</a>
-        <a href="#" class="tag-item">#マーケ×営業</a>
+        <a href="#" class="tag-item">#インテントデータ</a>
+        <a href="#" class="tag-item">#LinkedIn広告</a>
+        <a href="#" class="tag-item">#ホワイトペーパー</a>
+        <a href="#" class="tag-item">#展示会</a>
+        <a href="#" class="tag-item">#ウェビナー</a>
+        <a href="#" class="tag-item">#ユーソナー</a>
+        <a href="#" class="tag-item">#SalesMarker</a>
       </div>
     </div>
   </aside>
@@ -769,7 +631,7 @@
   // FADE IN
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
-      if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 60);
+      if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 55);
     });
   }, { threshold: 0.07 });
   document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
@@ -790,15 +652,6 @@
   window.addEventListener('scroll', () => {
     header.style.boxShadow = window.scrollY > 40 ? '0 4px 24px rgba(0,0,0,.45)' : 'none';
   });
-
-  // LOAD MORE
-  function loadMore(btn) {
-    btn.textContent = '読み込み中...';
-    setTimeout(() => {
-      btn.closest('.load-more-wrap').innerHTML =
-        '<p style="font-size:13px;color:var(--gray600);">すべての記事を表示しました</p>';
-    }, 800);
-  }
 </script>
 </body>
 </html>

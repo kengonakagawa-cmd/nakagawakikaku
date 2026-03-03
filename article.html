@@ -266,35 +266,20 @@
       .article-featured { grid-template-columns: 1fr; }
     }
     .featured-thumb {
-      background: linear-gradient(145deg, var(--navy), var(--navy2));
-      min-height: 260px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       position: relative;
       overflow: hidden;
+      background: var(--navy);
+      min-height: 260px;
     }
-    .featured-thumb::before {
-      content: '';
-      position: absolute;
-      top: -40px; right: -40px;
-      width: 200px; height: 200px;
-      background: radial-gradient(circle, rgba(14,165,233,.2) 0%, transparent 65%);
+    .featured-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left center;
+      display: block;
+      transition: transform .5s ease;
     }
-    .featured-thumb-text {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 24px;
-    }
-    .featured-thumb-icon { font-size: 48px; margin-bottom: 12px; }
-    .featured-thumb-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--cyan);
-    }
+    .article-featured:hover .featured-thumb img { transform: scale(1.03); }
     .featured-body { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
     .featured-meta {
       display: flex;
@@ -386,19 +371,20 @@
       transform: translateY(-4px);
     }
     .card-thumb {
-      height: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 36px;
+      height: 160px;
       position: relative;
+      overflow: hidden;
+      background: var(--navy);
     }
-    .card-thumb.t-navy  { background: linear-gradient(135deg, #08111f, #0e1e36); }
-    .card-thumb.t-teal  { background: linear-gradient(135deg, #042f1e, #065f46); }
-    .card-thumb.t-amber { background: linear-gradient(135deg, #431407, #7c2d12); }
-    .card-thumb.t-blue  { background: linear-gradient(135deg, #0c1a3d, #1e3a8a); }
-    .card-thumb.t-slate { background: linear-gradient(135deg, #0f172a, #1e293b); }
-    .card-thumb.t-violet{ background: linear-gradient(135deg, #1e1b4b, #3730a3); }
+    .card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left center;
+      display: block;
+      transition: transform .4s ease;
+    }
+    .article-card:hover .card-thumb img { transform: scale(1.04); }
     .card-new {
       position: absolute;
       top: 10px; right: 10px;
@@ -409,6 +395,7 @@
       letter-spacing: .08em;
       padding: 2px 7px;
       border-radius: 4px;
+      z-index: 1;
     }
     .card-body {
       padding: 20px;
@@ -682,10 +669,7 @@
     <!-- FEATURED -->
     <a href="article-detail.html" class="article-featured fade-in" data-cat="abm">
       <div class="featured-thumb">
-        <div class="featured-thumb-text">
-          <div class="featured-thumb-icon">🎯</div>
-          <div class="featured-thumb-label">Complete Guide</div>
-        </div>
+        <img src="banners/banner_abm_guide.svg" alt="ABM戦略とは？大手企業開拓で成果を出すための完全ガイド">
       </div>
       <div class="featured-body">
         <div class="featured-meta">
@@ -705,7 +689,10 @@
     <div class="article-grid" id="article-grid">
 
       <a href="#" class="article-card fade-in" data-cat="gtm">
-        <div class="card-thumb t-blue">📊<span class="card-new">NEW</span></div>
+        <div class="card-thumb">
+          <img src="banners/banner_gtm_design.svg" alt="GTM戦略の設計方法">
+          <span class="card-new">NEW</span>
+        </div>
         <div class="card-body">
           <div class="card-meta"><span class="cat-pill gtm">GTM戦略</span></div>
           <p class="card-title">GTM戦略の設計方法：エンタープライズ市場への参入で押さえるべき5つのポイント</p>
@@ -714,7 +701,9 @@
       </a>
 
       <a href="#" class="article-card fade-in" data-cat="exec">
-        <div class="card-thumb t-teal">🤝</div>
+        <div class="card-thumb">
+          <img src="banners/banner_exec_roundtable.svg" alt="CxOアプローチの基本">
+        </div>
         <div class="card-body">
           <div class="card-meta"><span class="cat-pill exec">エグゼクティブ施策</span></div>
           <p class="card-title">CxOアプローチの基本：経営層との接点を生み出すラウンドテーブルの設計方法</p>
@@ -723,7 +712,9 @@
       </a>
 
       <a href="#" class="article-card fade-in" data-cat="case">
-        <div class="card-thumb t-amber">📋</div>
+        <div class="card-thumb">
+          <img src="banners/banner_case_mfg.svg" alt="事例：製造業BtoB企業">
+        </div>
         <div class="card-body">
           <div class="card-meta"><span class="cat-pill case">支援事例</span></div>
           <p class="card-title">【事例】製造業BtoB企業がABM導入4ヶ月で大手メーカー3社との商談を獲得した方法</p>
@@ -732,7 +723,9 @@
       </a>
 
       <a href="#" class="article-card fade-in" data-cat="abm">
-        <div class="card-thumb t-navy">🗺️</div>
+        <div class="card-thumb">
+          <img src="banners/banner_abm_tier.svg" alt="アカウントTierの設計方法">
+        </div>
         <div class="card-body">
           <div class="card-meta"><span class="cat-pill abm">ABM戦略</span></div>
           <p class="card-title">アカウントTierの設計方法：Tier 1〜3の分類基準と施策の使い分けを解説</p>
@@ -741,7 +734,9 @@
       </a>
 
       <a href="#" class="article-card fade-in" data-cat="gtm">
-        <div class="card-thumb t-violet">🧭</div>
+        <div class="card-thumb">
+          <img src="banners/banner_icp.svg" alt="ICPの定義方法">
+        </div>
         <div class="card-body">
           <div class="card-meta"><span class="cat-pill gtm">GTM戦略</span></div>
           <p class="card-title">ICP（理想顧客プロファイル）の定義方法：CRMデータから自社の勝ちパターンを抽出する</p>
@@ -750,7 +745,9 @@
       </a>
 
       <a href="#" class="article-card fade-in" data-cat="exec">
-        <div class="card-thumb t-teal">✉️</div>
+        <div class="card-thumb">
+          <img src="banners/banner_personalize_dm.svg" alt="パーソナライズDM">
+        </div>
         <div class="card-body">
           <div class="card-meta"><span class="cat-pill exec">エグゼクティブ施策</span></div>
           <p class="card-title">パーソナライズDMで決裁者の反応を引き出す：開封率を3倍にした実践テンプレート</p>
@@ -759,7 +756,9 @@
       </a>
 
       <a href="#" class="article-card fade-in" data-cat="abm">
-        <div class="card-thumb t-blue">🔗</div>
+        <div class="card-thumb">
+          <img src="banners/banner_mktg_sales.svg" alt="マーケ×営業の一体運用">
+        </div>
         <div class="card-body">
           <div class="card-meta"><span class="cat-pill abm">ABM戦略</span></div>
           <p class="card-title">マーケ×営業の一体運用：SLA・トスアップ基準・KPIを正しく設計する方法</p>
@@ -768,7 +767,9 @@
       </a>
 
       <a href="#" class="article-card fade-in" data-cat="case">
-        <div class="card-thumb t-amber">🏆</div>
+        <div class="card-thumb">
+          <img src="banners/banner_case_saas.svg" alt="事例：SaaS企業">
+        </div>
         <div class="card-body">
           <div class="card-meta"><span class="cat-pill case">支援事例</span></div>
           <p class="card-title">【事例】SaaS企業がGTM戦略の再設計により大手金融3社への新規開拓に成功した背景</p>
